@@ -12,6 +12,13 @@ Ejemplo [Arturo - Teléfono, Pedro - Teléfono]
 vNom=[]
 vTel=[]
 
-vNom=input("Dime un nombre\n")
+nom=input("Dime un nombre\n")
+tel=input("Dime un número\n")
+
+vNom.append(nom)
+vTel.append(tel)
+
+print(vNom)
+print(vTel)
 
 
