@@ -15,10 +15,10 @@ vTel=[]
 nom=input("Dime un nombre\n")
 tel=input("Dime un número\n")
 
-vNom.append(nom)
-vTel.append(tel)
+vNom.append(input("Dime tu nombre"))
+vTel.append(input("Dime tu teléfono"))
 
-print(vNom)
-print(vTel)
+print("Número de telefono de ", nom, "es", tel)
+print("Número de telefono de ", vNom, "es", vTel)
 
 
