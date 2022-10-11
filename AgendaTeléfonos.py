@@ -9,6 +9,9 @@ Ejemplo [Arturo - Teléfono, Pedro - Teléfono]
 '''
 
 #Opción 1
+from re import I
+
+
 vNom=[]
 vTel=[]
 
@@ -19,6 +22,11 @@ vNom.append(input("Dime tu nombre"))
 vTel.append(input("Dime tu teléfono"))
 
 print("Número de telefono de ", nom, "es", tel)
-print("Número de telefono de ", vNom, "es", vTel)
+print("Número de telefono de ", vNom.pop, "es", vTel.pop)
 
 
+#Bucle while
+i=0
+while(True):
+    print("No hagas esto nunca", i)
+    i=i+1
