@@ -1,10 +1,7 @@
-edad=5
+#Funciones definidas por el usuario
+def SumarDosNumeros(num1:int, num2:int):
+    #print("La suma de estos numeros es: ", num1+num2)
+    return num1+num2
 
-edad_Como_Texto=int(edad)
-edad_Como_Texto=str(edad)
-
-print(edad_Como_Texto/5)
-
-print(len("Juan"))
-
-edad2=int(input("Dime tu edad: "))
+suma=SumarDosNumeros(1,2)
+print("La suma es:", suma)
