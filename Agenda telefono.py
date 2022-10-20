@@ -9,7 +9,7 @@ def pintaMenu():
     vNom=[]
     vTlf=[]
     opc=0
-    while (opc!=5):
+    while (opc<1 or opc>5):
         print("1-Insertar contacto")
         print("2- Borra contacto")
         print("3- Buscar contacto")
@@ -20,10 +20,10 @@ def pintaMenu():
             opc= int(input("Seleccione una opción\n"))
         except:
             print("Las opciones son de la 1 al 5")
+    return opc
 
 
 
+opc=pintaMenu()      
 
-        opc=int(input("Dime que hacer\n"))
-        if(opc==5):
-            print("Has salido de la agenda")
+
