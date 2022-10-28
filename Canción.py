@@ -14,5 +14,13 @@ def descargaCancion(url:str):
 descargaCancion("https://www.youtube.com/shorts/vCiukaljhO4")
 
 
+def descargarLista(url:str):
+    playlist=Playlist(url)
+    for cancion in playlist.videos:
+        print("Descargando cancion:", cancion.title)
+        cancion.streams.get_audio_only().download("cancion/")
+        print("*************************\n")
+url="https://www.youtube.com/watch?v=kgcm0_wxHFQ&list=PLVZtocpycmEUbKbqDt1bnnA67njRJHZll"
+descargarLista(url)
 
 
