@@ -5,18 +5,27 @@ from tkinter import messagebox
 usu=""
 contr=""
 confir=""
+sexo=""
 vLista=[]
 
 def GUARDAR():
     usu=datosUsuario.get()
     contr=datosContraseña.get()
     confir=datosConfirmacion.get()
+    sexo=datosDesplegable.get()
     if contr==confir:
+        print("Nombre del usuario:", usu)
+        print("Contraseña:", contr)
+        print("Sexo:", sexo)
         vLista.append(usu)
         vLista.append(contr)
+        vLista.append(confir)
+        vLista.append(sexo)
         datosUsuario.delete(0,len(usu))
         datosContraseña.delete(0,len(contr))
         datosConfirmacion.delete(0,len(confir))
+        datosSexo.delete(0,len(sexo))
+
         messagebox.showinfo("Usuario Guardado", f"Usuario {usu} guardado correctamente :)")
         
  
@@ -54,10 +63,21 @@ labelConfirmacion=ttk.Label(ventana, text="Confirmar contraseña:")
 labelConfirmacion.config(background="palegreen")
 labelConfirmacion.grid(row=3,column=0,pady=10)
 
+datosSexo= ttk.Entry(ventana)
+datosSexo.grid(row=4,column=1,pady=10)
+datosDesplegable=ttk.Combobox(ventana,state="readonly",values=["Hombre","Mujer","No binario"])
+datosDesplegable.grid(row=4,column=1,pady=10)
+datosDesplegable.set("Dime su sexo")
+
+
+labelSexo=ttk.Label(ventana, text="Sexo:")
+labelSexo.config(background="palegreen")
+labelSexo.grid(row=4,column=0,pady=10)
+
 salir=ttk.Button(ventana, text="Salir", command=ventana.destroy)
-salir.grid(row=4,column=1,pady=10)
+salir.grid(row=5,column=1,pady=10)
 
 botonGuardar=ttk.Button(ventana, text="Guardar", command=GUARDAR)
-botonGuardar.grid(row=4,column=0,pady=10)
+botonGuardar.grid(row=5,column=0,pady=10)
 
 ventana.mainloop()
