@@ -4,9 +4,8 @@ import flet as ft
 def main(page: ft.Page):
     page.title="Flet>Tkinter"
     def cambiar_color(e):
-        for i in range(10):
-            text=ft.Text(value=f"Texto numero{i}", size=30)
-            page.add(text)
+        t.value=textField_Nombre.value
+        page.update()
     #Componentes texto
     t=ft.Text(value="Introduccion de flet", color="pink", size=133)
 
@@ -18,6 +17,9 @@ def main(page: ft.Page):
     #Componente boton
     bt=ft.FloatingActionButton(icon=ft.icons.ADD, on_click=cambiar_color)
     page.add(bt)
+
+    textField_Nombre=ft.TextField(label="Nombre",hint_text="Escribe tu nombre")
+    page.add(textField_Nombre)
     
 
 
