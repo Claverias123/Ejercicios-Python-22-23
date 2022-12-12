@@ -5,24 +5,26 @@ import flet as ft
 
 def main(page: ft.Page):
     page.title="Fruteria er Cherry"
-    def cambiar_color(e):
-        t.value=textField_Nombre.value
+    def añadir_elemento(e):
+        t.value=(textField_Nombre.value + "-" + textField_Cantidad.value + textField_Menu.value)
+        print(t.value)
         page.update()
     #Componentes texto
-    t=ft.Text(value="¿Qué quiere comprar?", color="green", size=50)
+    t=ft.Text(value="¿Qué quiere comprar?", color="White", size=50)
     page.add(t) #add hace dos cosas 1-añadir y 2-actualizar
 
     t.value="¿Qué quiere comprar?"
     page.update()
 
     #Componente boton
-    bt=ft.FloatingActionButton(icon=ft.icons.ADD, on_click=cambiar_color)
+    bt=ft.FloatingActionButton(icon=ft.icons.ADD, on_click=añadir_elemento)
     page.add(bt)
 
-    textField_Nombre=ft.TextField(label="Productos",hint_text="Dime los productos que quieras comprar")
+    textField_Nombre=ft.TextField(label="Nombre",hint_text="Dime el nombre del comprador")
     #page.add(textField_Nombre)
 
-    dropDown_Menu=ft.Dropdown(width=300,label="Productos")
+
+    textField_Menu=dropDown_Menu=ft.Dropdown(width=300,label="Productos")
     #page.add(dropDown_Menu)
     dropDown_Menu.options.append(ft.dropdown.Option("Carnes"))
     page.update()
@@ -30,13 +32,11 @@ def main(page: ft.Page):
     page.update()
     dropDown_Menu.options.append(ft.dropdown.Option("Fruta"))
     page.update()
-    dropDown_Menu.options.append(ft.dropdown.Option("Droga"))
-    page.update()
 
-    slider_edad=ft.Slider(min=0, max=120, divisions=120, label="Edad: {value}")
-    #page.add(slider_edad)
+    textField_Cantidad=slider_cantidad=ft.Slider(min=0, max=20, divisions=20, label="Cantidad: {value}")
+    #page.add(slider_cantidad)
     
-    fila=ft.Row(controls=[textField_Nombre,dropDown_Menu])
+    fila=ft.Row(controls=[textField_Nombre,dropDown_Menu,slider_cantidad])
     page.add(fila)
 
 
