@@ -1,29 +1,20 @@
 import flet as ft
 
 def main(page: ft.Page):
-    def check_item_clicked(e):
-        e.control.checked = not e.control.checked
+    def guardar_elemento(e):
+        texto.value = f"Quieres comprar:  {menu.value}"
         page.update()
 
-    pb = ft.PopupMenuButton(
-        items=[
-            ft.PopupMenuItem(text="Item 1"),
-            ft.PopupMenuItem(icon=ft.icons.POWER_INPUT, text="Check power"),
-            ft.PopupMenuItem(
-                content=ft.Row(
-                    [
-                        ft.Icon(ft.icons.HOURGLASS_TOP_OUTLINED),
-                        ft.Text("Item with a custom content"),
-                    ]
-                ),
-                on_click=lambda _: print("Button with a custom content clicked!"),
-            ),
-            ft.PopupMenuItem(),  # divider
-            ft.PopupMenuItem(
-                text="Checked item", checked=False, on_click=check_item_clicked
-            ),
-        ]
+    texto = ft.Text()
+    boton_guardar = ft.ElevatedButton(text="Confirmar compra", on_click=guardar_elemento)
+    menu = ft.Dropdown(
+        width=100,
+        options=[
+            ft.dropdown.Option("Frutas"),
+            ft.dropdown.Option("Verduras"),
+            ft.dropdown.Option("Pescao"),
+        ],
     )
-    page.add(pb)
+    page.add(menu, boton_guardar ,texto)
 
 ft.app(target=main)
