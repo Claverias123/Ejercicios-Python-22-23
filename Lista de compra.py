@@ -49,9 +49,8 @@ def main(page: ft.Page):
     page.add(fila, fila1)
     img = ft.Image(
         src=f"https://hermanosmarinchiclana.es/wp-content/uploads/2021/07/DSC01779-scaled.jpg",
-        width=400,
-        height=400,
-        fit=ft.ImageFit.CONTAIN)
+        width=500,
+        height=500,)
 
 
     page.add(img)

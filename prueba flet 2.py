@@ -6,27 +6,62 @@ def main(page: ft.Page):
     page.padding = 50
     page.update()
 
-    img = ft.Image(
-        src=f"/icons/icon-512.png",
+
+    nombreFruta = ""
+
+    def dropdown_changed(e):
+        if (dd.value == "Fresa"):
+            nombreFruta = "imagenes/fresa.jpeg"
+            print(f"fresa al poder {nombreFruta}")
+        elif (dd.value == "Platano"):
+            nombreFruta = "imagenes/platano.jpeg"
+            print("platano al poder")
+        else:
+            nombreFruta = "https://hermanosmarinchiclana.es/wp-content/uploads/2021/07/DSC01779-scaled.jpg"
+            print("gatito al poder")
+
+
+        img.src=f"{nombreFruta}"
+        page.update()
+
+        
+
+    dd = ft.Dropdown(
         width=100,
-        height=100,
-        fit=ft.ImageFit.CONTAIN,
+        options=[
+            ft.dropdown.Option("Fresa"),
+            ft.dropdown.Option("Platano"),
+            ft.dropdown.Option("Fruteria erCherry"),
+        ],
+        on_change=dropdown_changed
     )
-    images = ft.Row(expand=1, wrap=False, scroll="always")
 
-    page.add(img, images)
+    page.add(dd)
 
-    for i in range(0, 30):
-        images.controls.append(
-            ft.Image(
-                src=f"https://picsum.photos/200/200?{i}",
-                width=200,
-                height=200,
-                fit=ft.ImageFit.NONE,
-                repeat=ft.ImageRepeat.NO_REPEAT,
-                border_radius=ft.border_radius.all(10),
-            )
+    
+    img = ft.Image(
+            src=f"imagenes/{nombreFruta}"
+            #width=20,
+            #height=30
         )
-    page.update()
 
-ft.app(target=main)
+    page.add(img)
+   
+    
+'''
+    img2 = ft.Image(
+        src=f"imagenes/platano.jpeg"
+        #width=100,
+        #height=100,
+    )
+    img3 = ft.Image(
+        src=f"https://loremflickr.com/640/360"
+        #width=100,
+        #height=100,
+    )
+    
+'''
+   
+
+
+ft.app(target=main, assets_dir="recursos")
